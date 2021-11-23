@@ -69,7 +69,7 @@ function MainRecipesDrinks() {
   return (
     <main className="main-recipes">
       <Header>
-        Bebidas
+        Drinks
       </Header>
       <section className="recipes-filter">
         <button

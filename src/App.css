@@ -37,7 +37,7 @@ a:visited {
 }
 
 .recipes-filter button {
-  background-color: #a64f03da;
+  background-image: linear-gradient(to top right, #a64f03da, #a64f03, #402208da);
   border: none;
   border-radius: 5px;
   box-shadow: 0.3px 0.5px 3px 0.7px black;

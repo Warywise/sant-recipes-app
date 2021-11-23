@@ -69,7 +69,7 @@ function MainRecipes() {
   return (
     <main className="main-recipes">
       <Header>
-        Comidas
+        Foods
       </Header>
       <section className="recipes-filter">
         <button

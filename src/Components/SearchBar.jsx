@@ -1,25 +1,26 @@
 import React, { useContext, useState } from 'react';
-import PropTypes from 'prop-types';
 
 import { Redirect } from 'react-router-dom';
 
 import DefaultInput from './DefaultInput';
 import Button from './Button';
 
+import UrlIncludes from '../Helper/UrlIncludes';
 import { MyContext } from '../Context/MyContext';
 
-function SearchBar({ textFilterPage }) {
+function SearchBar() {
   const [searchText, setSearchText] = useState('');
   const [filterSelected, setFilterSelected] = useState('');
 
   const { filterUrl, setFilterUrl, data } = useContext(MyContext);
 
+  const CURR_URL = window.location.pathname;
+
   function verifyLengthRecipes() {
     if (data.length === 1) {
       const idRecipe = data[0].idMeal || data[0].idDrink;
 
-      const textFilterPageLowerCase = textFilterPage.toLowerCase();
-      return <Redirect to={ `/${textFilterPageLowerCase}/${idRecipe}` } />;
+      return <Redirect to={ `${CURR_URL}/${idRecipe}` } />;
     }
   }
 
@@ -36,24 +37,21 @@ function SearchBar({ textFilterPage }) {
     };
 
     if (filterSelected === 'Ingrediente') {
-      url = textFilterPage === 'Comidas'
-        ? linksFoodAndDrinks.ingredientFood
-        : linksFoodAndDrinks.ingredientDrink;
+      url = UrlIncludes(CURR_URL, 'comidas',
+        linksFoodAndDrinks.ingredientFood, linksFoodAndDrinks.ingredientDrink);
     }
 
     if (filterSelected === 'Nome') {
-      url = textFilterPage === 'Comidas'
-        ? linksFoodAndDrinks.nameFood
-        : linksFoodAndDrinks.nameDrink;
+      url = UrlIncludes(CURR_URL, 'comidas',
+        linksFoodAndDrinks.nameFood, linksFoodAndDrinks.nameDrink);
     }
 
     if (filterSelected === 'Primeira letra') {
       if (searchText.length !== 1) {
         return global.alert('Sua busca deve conter somente 1 (um) caracter');
       }
-      url = textFilterPage === 'Comidas'
-        ? linksFoodAndDrinks.firstLetterFood
-        : linksFoodAndDrinks.firstLetterDrink;
+      url = UrlIncludes(CURR_URL, 'comidas',
+        linksFoodAndDrinks.firstLetterFood, linksFoodAndDrinks.firstLetterDrink);
     }
 
     setFilterUrl(url);
@@ -66,7 +64,7 @@ function SearchBar({ textFilterPage }) {
         id="search-input"
         name="search-input"
         onChange={ ({ target }) => setSearchText(target.value) }
-        placeholder="Ex: Macarrão"
+        placeholder="Ex: Bacon"
         value={ searchText }
         type="text"
       />
@@ -79,7 +77,7 @@ function SearchBar({ textFilterPage }) {
           onChange={ ({ target }) => setFilterSelected(target.value) }
           type="radio"
           value="Ingrediente"
-          text="Ingrediente"
+          text="by Ingredient"
         />
         <DefaultInput
           id="name-search-radio"
@@ -87,7 +85,7 @@ function SearchBar({ textFilterPage }) {
           onChange={ ({ target }) => setFilterSelected(target.value) }
           type="radio"
           value="Nome"
-          text="Nome"
+          text="by Name"
         />
         <DefaultInput
           id="first-letter-search-radio"
@@ -95,7 +93,7 @@ function SearchBar({ textFilterPage }) {
           onChange={ ({ target }) => setFilterSelected(target.value) }
           type="radio"
           value="Primeira letra"
-          text="Primeira letra"
+          text="by First Letter"
         />
 
       </div>
@@ -106,15 +104,11 @@ function SearchBar({ textFilterPage }) {
           dataTestId="exec-search-btn"
           onClick={ filterRecipes }
         >
-          Buscar
+          Search
         </Button>
       </div>
     </section>
   );
 }
-
-SearchBar.propTypes = {
-  textFilterPage: PropTypes.string.isRequired,
-};
 
 export default SearchBar;

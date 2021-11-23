@@ -1,6 +1,6 @@
 .footer {
   align-items: center;
-  background-color: #3f6473;
+  background-image: linear-gradient(#1f3741, #3f6473);
   bottom: 0;
   display: flex;
   flex-flow: row nowrap;
