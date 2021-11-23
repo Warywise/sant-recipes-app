@@ -2,7 +2,7 @@
   align-items: center;
   background-color: #3f6473;
   box-shadow: 0 0.5px 3px #0d0d0d;
-  color: white;
+  color: #fffcee;
   display: grid;
   flex-flow: row wrap;
   font-weight: 700;
@@ -19,7 +19,7 @@
   border: none;
   border-radius: 8px;
   box-shadow: 0 0 1.5px #f0f0f2;
-  color: white;
+  color: #fffcee;
   padding: 5px 3px;
 }
 

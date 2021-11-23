@@ -32,7 +32,6 @@ function Header({ children, disabledSearch }) {
     <header className="header">
       { redirectProfile && <Redirect to="/perfil" /> }
 
-      {/* <div className="header-content"> */}
       <Button
         className="header-btns profile-btn"
         dataTestId="profile-top-btn"
@@ -44,7 +43,6 @@ function Header({ children, disabledSearch }) {
       <h1 className="title-page" data-testid="page-title">
         { children }
       </h1>
-      {/* </div> */}
       { !disabledSearch && btnSearch() }
 
       { showSearchBar && <SearchBar textFilterPage={ children } /> }
