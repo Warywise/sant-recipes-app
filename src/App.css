@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&display=swap') ;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,9 +7,9 @@
 }
 
 .app {
-  background-color: #F0F0F2;
+  background-color: #f0f0f2;
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .main-recipes {
@@ -41,7 +43,6 @@
   flex-flow: row wrap;
   justify-content: space-evenly;
   margin-bottom: calc(8vh + 5vmin);
-  width: 100%;
 }
 
 .recipes-section a {
@@ -78,13 +79,13 @@
 }
 
 .explorer-btn {
-  background-color: #A64F03;
+  background-color: #a64f03;
   border: none;
   border-radius: 5px;
   box-shadow: 0.5px 0.8px 5px 0.3px black;
   color: white;
   font-size: calc(1em + 2vmin);
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 20%;
   padding: 16px;
 }

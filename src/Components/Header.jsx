@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import { BiUser, BiSearchAlt2 } from 'react-icons/bi';
 
 import Button from './Button';
 import SearchBar from './SearchBar';
@@ -17,13 +18,13 @@ function Header({ children, disabledSearch }) {
 
   const btnSearch = () => (
     <Button
-      className="search-container"
+      className="header-btns show-search-btn"
       dataTestId="search-top-btn"
       display={ disabledSearch }
       src={ searchIcon }
       onClick={ () => setShowSearchBar(!showSearchBar) }
     >
-      <img src={ searchIcon } alt="Profile Icon" />
+      <BiSearchAlt2 size="2.3em" />
     </Button>
   );
 
@@ -31,19 +32,19 @@ function Header({ children, disabledSearch }) {
     <header className="header">
       { redirectProfile && <Redirect to="/perfil" /> }
 
-      <div className="header-content">
-        <Button
-          className="profile-container"
-          dataTestId="profile-top-btn"
-          onClick={ () => setRedirectProfile(true) }
-          src={ profileIcon }
-        >
-          <img src={ profileIcon } alt="Profile Icon" />
-        </Button>
-        <h1 className="title-page" data-testid="page-title">
-          { children }
-        </h1>
-      </div>
+      {/* <div className="header-content"> */}
+      <Button
+        className="header-btns profile-btn"
+        dataTestId="profile-top-btn"
+        onClick={ () => setRedirectProfile(true) }
+        src={ profileIcon }
+      >
+        <BiUser size="2.3em" />
+      </Button>
+      <h1 className="title-page" data-testid="page-title">
+        { children }
+      </h1>
+      {/* </div> */}
       { !disabledSearch && btnSearch() }
 
       { showSearchBar && <SearchBar textFilterPage={ children } /> }

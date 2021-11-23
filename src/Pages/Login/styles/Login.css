@@ -1,14 +1,24 @@
 .login {
-  background-size: 100% 100%;
-  background-image: url(https://r1.ilikewallpaper.net/iphone-x-wallpapers/download/37743/Food-love-red-table-iphone-x-wallpaper-ilikewallpaper_com.jpg);
   align-items: center;
+  background-image: url('https://thumbs.dreamstime.com/b/black-cooking-background-black-cooking-background-vegetables-ingredients-top-view-free-space-your-text-168099295.jpg');
+  background-size: cover;
   display: flex;
+  flex-direction: column;
+  height: 100vh;
   justify-content: center;
-  height: 100%;
+}
+
+.login-page-name {
+  color: #402208;
+  font: italic 700 2.5em Besley , serif;
+  letter-spacing: 3px;
+  margin-bottom: 2em;
+  text-shadow: 0.5px 0.8px 3px  #fffcee , -0.5px -0.8px 3px #a64f03;
 }
 
 .login-form {
   align-items: center;
+  background-color: #f0f0f2e1;
   border-radius: 10%;
   box-shadow: 0 0 5px black;
   display: flex;
@@ -21,11 +31,29 @@
   margin-bottom: 10px;
 }
 
-.button {
-  margin-bottom: 10px;
+.login-input {
+  padding: 3px;
+  position: relative;
 }
 
-.login-container {
-  border-radius: 10%;
-  background-color: #F2F2F2;
+.login-input input {
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 0 1.3px 0.7px #0d0d0d;
+  padding: 3px 5px;
+}
+
+.login-input input:focus {
+  outline-color: orange;
+}
+
+.login-check input:focus {
+  outline-color: lightgreen;
+}
+
+.login-form .button {
+  background-color: #3f6473;
+  border: none;
+  box-shadow: 0.3px 0.5px 2px 1px #0d0d0d;
+  margin-bottom: 10px;
 }

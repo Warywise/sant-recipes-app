@@ -19,12 +19,12 @@ function Login() {
   const [state, setState] = useState(INITIAL_STATE);
   const { email, password, login } = state;
 
-  function handleChange({ target: { name, value } }) {
-    setState({ ...state, [name]: value });
-  }
-
   function validation() {
     return RegExp.test(email) && password.length > length;
+  }
+
+  function handleChange({ target: { name, value } }) {
+    setState({ ...state, [name]: value });
   }
 
   function handleClick() {
@@ -38,44 +38,45 @@ function Login() {
   return (
     <main className="login">
       { login && <Redirect to="/comidas" /> }
-      <div className="login-container">
-        <form className="login-form">
-          <h4>Login</h4>
-          <DefaultInput
-            type="text"
-            id="email-input"
-            name="email"
-            value={ email }
-            onChange={ handleChange }
-            placeholder="Email"
-            className="login-input"
-          />
-          <DefaultInput
-            type="password"
-            id="password-input"
-            name="password"
-            value={ password }
-            onChange={ handleChange }
-            placeholder="Password"
-            className="login-input"
-          />
-          <p>Forgot Password?</p>
-          <Button
-            color="primary"
-            className="button"
-            type="button"
-            data-testid="login-submit-btn"
-            disabled={ !validation() }
-            onClick={ handleClick }
-          >
-            Log In
-          </Button>
-          <p>
-            Don't have an account?
-            <a href="#Header">Signup Now.</a>
-          </p>
-        </form>
-      </div>
+      <h1 className="login-page-name">ThreeMeals</h1>
+      <form className="login-form">
+        <h4>Login</h4>
+        <DefaultInput
+          type="text"
+          id="email-input"
+          name="email"
+          value={ email }
+          onChange={ handleChange }
+          placeholder="Email"
+          className={ RegExp.test(email)
+            ? 'login-input login-check' : 'login-input' }
+        />
+        <DefaultInput
+          type="password"
+          id="password-input"
+          name="password"
+          value={ password }
+          onChange={ handleChange }
+          placeholder="Password"
+          className={ password.length > length
+            ? 'login-input login-check' : 'login-input' }
+        />
+        <p>Forgot Password?</p>
+        <Button
+          color="primary"
+          className="button"
+          type="button"
+          data-testid="login-submit-btn"
+          disabled={ !validation() }
+          onClick={ handleClick }
+        >
+          Log In
+        </Button>
+        <p>
+          { 'Don\'t have an account? ' }
+          <a href="/">Signup Now.</a>
+        </p>
+      </form>
     </main>
   );
 }
