@@ -6,6 +6,14 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: currentColor;
+}
+
 .app {
   background-color: #f0f0f2;
   min-height: 100vh;
@@ -29,40 +37,48 @@
 }
 
 .recipes-filter button {
-  background-color: lightgrey;
+  background-color: #a64f03da;
   border: none;
   border-radius: 5px;
   box-shadow: 0.3px 0.5px 3px 0.7px black;
-  margin: 1em 0 0 1em;
-  padding: 3px 5px;
+  color: #fffcee;
+  font-weight: 600;
+  margin: 1em 1em 0;
+  padding: 5px 8px;
 }
 
 .recipes-section {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   margin-bottom: calc(8vh + 5vmin);
-}
-
-.recipes-section a {
-  width: 40%;
+  width: 95%;
 }
 
 .recipe-card {
   align-items: center;
   border-radius: 15px;
-  box-shadow: 0 0.7px 2px black;
+  box-shadow: 0.3px 0.7px 5px #0d0d0d;
   contain: content;
-  display: flex;
-  flex: auto;
-  flex-flow: column;
-  justify-content: center;
-  margin-bottom: 10px;
+  display: grid;
+  grid-template-rows: 80% 12% 8%;
+  position: relative;
   text-align: center;
 }
 
-.recipe-card img {
+.recipe-card .img-recipe {
+  grid-row: 1/4;
+  width: 100%;
+}
+
+.recipe-card .title-recipe {
+  background-image: linear-gradient(to top, #fffcee, transparent);
+  color: #0d0d0de0;
+  font-weight: 600;
+  grid-row: 3;
+  padding: 16px;
+  position: absolute;
+  text-align: left;
   width: 100%;
 }
 
