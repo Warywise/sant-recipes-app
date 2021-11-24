@@ -76,7 +76,7 @@ function Details({ match: { url }, history: { goBack } }) {
         </Button>
         <div className="banner-content">
           <div className="banner-title">
-            <h1 className="recipe-title" data-testid="recipe-title">
+            <h1 className="details-title recipe-name" data-testid="recipe-title">
               { foodData.strMeal || foodData.strDrink }
             </h1>
             <div className="details-category">
@@ -114,14 +114,14 @@ function Details({ match: { url }, history: { goBack } }) {
         </div>
       </div>
       <hr />
-      <h1 className="title-container">Ingredients:</h1>
-      <div className="ingredients">
+      <h1 className="details-title">Ingredients:</h1>
+      <div className="ingredients-box">
         <ul className="ingredients-li">
           { filterIngredients() }
         </ul>
       </div>
-      <h1 className="title-container">Instructions:</h1>
-      <div className="instructions-container">
+      <h1 className="details-title">Instructions:</h1>
+      <div className="instructions-box">
         <p data-testid="instructions">
           {foodData.strInstructions}
         </p>
