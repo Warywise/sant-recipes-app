@@ -18,7 +18,7 @@ function Header({ children, disabledSearch }) {
 
   const btnSearch = () => (
     <Button
-      className="header-btns show-search-btn"
+      className="btn-click header-btns show-search-btn"
       dataTestId="search-top-btn"
       display={ disabledSearch }
       src={ searchIcon }
@@ -33,7 +33,7 @@ function Header({ children, disabledSearch }) {
       { redirectProfile && <Redirect to="/perfil" /> }
 
       <Button
-        className="header-btns profile-btn"
+        className="btn-click header-btns profile-btn"
         dataTestId="profile-top-btn"
         onClick={ () => setRedirectProfile(true) }
         src={ profileIcon }

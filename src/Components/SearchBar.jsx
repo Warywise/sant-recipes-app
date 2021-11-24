@@ -103,6 +103,7 @@ function SearchBar() {
           className="search-btn"
           dataTestId="exec-search-btn"
           onClick={ filterRecipes }
+          disabled={ filterSelected === '' }
         >
           Search
         </Button>

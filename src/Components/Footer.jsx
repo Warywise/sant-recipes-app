@@ -18,7 +18,7 @@ function Footer() {
           data-testid="drinks-bottom-btn"
           width="0"
         />
-        <FaCocktail className="footer-icons" size="2.5em" />
+        <FaCocktail className="btn-click footer-icons" size="2.5em" />
       </Link>
       <Link to="/explorar">
         <img
@@ -27,7 +27,7 @@ function Footer() {
           data-testid="explore-bottom-btn"
           width="0"
         />
-        <GiCompass className="footer-icons" size="2.5em" />
+        <GiCompass className="btn-click footer-icons" size="2.5em" />
       </Link>
       <Link to="/comidas">
         <img
@@ -36,7 +36,7 @@ function Footer() {
           data-testid="food-bottom-btn"
           width="0"
         />
-        <GiForkKnifeSpoon className="footer-icons" size="2.5em" />
+        <GiForkKnifeSpoon className="btn-click footer-icons" size="2.5em" />
       </Link>
     </footer>
   );

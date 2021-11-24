@@ -1,0 +1,58 @@
+.recipes-explorer {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  padding-top: 16vh;
+}
+
+.recipes-explorer select {
+  background-image: linear-gradient(to top, #1f3741, #3f6473 50%);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.3px 0.5px 3px 1px #402208;
+  color: #fffcee;
+  font-weight: 600;
+  margin: calc(1em + 3vmin) 0 calc(1em + 1vmin);
+  padding: 5px 8px;
+}
+
+.recipes-explorer select:focus {
+  outline: solid thin #0d0d0dda;
+}
+
+.recipes-explorer select option {
+  background-color: #f0f0f2;
+  color: #0d0d0d;
+  font-weight: 600;
+  padding: 3px 5px;
+}
+
+.explorer-btn {
+  background-image: linear-gradient(to top, #a64f03, #402208 25%, #a64f03);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.7px 3px 0.7px black;
+  color: white;
+  font-size: calc(1em + 2vmin);
+  font-weight: 600;
+  margin-top: 15%;
+  padding: 16px;
+}
+
+.ingredients-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 30% 3%;
+}
+
+.ingredients-container button {
+  border: none;
+  margin: 0.5em;
+  width: 30%;
+}
+
+.ingredients-container .recipe-card {
+  max-width: none;
+}

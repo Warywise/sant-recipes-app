@@ -49,7 +49,7 @@ function IngredientExplorer({ match: { url } }) {
   return (
     <main className="main-recipes">
       <Header disabledSearch>
-        Explorar Ingredientes
+        Ingredients Explorer
       </Header>
       <div className="ingredients-container">
         { ingredients.length > 0 && ingredients.slice(0, maxIndex).map((item, ind) => (

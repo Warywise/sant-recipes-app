@@ -82,47 +82,11 @@ a:visited {
   width: 100%;
 }
 
-.recipes-explorer {
-  align-items: center;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  padding-top: 25%;
-}
-
-.recipes-explorer select {
-  margin: 8px 0 16px;
-}
-
-.explorer-btn {
-  background-color: #a64f03;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0.5px 0.8px 5px 0.3px black;
-  color: white;
-  font-size: calc(1em + 2vmin);
-  font-weight: 700;
-  margin-top: 20%;
-  padding: 16px;
-}
-
-.ingredients-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 30% 3%;
-}
-
-.ingredients-container button {
-  border: none;
-  margin: 0.5em;
-  width: 30%;
-}
-
-.ingredients-container .recipe-card {
-  max-width: none;
-}
-
 .dashed-ingredient {
   text-decoration: line-through solid black;
+}
+
+.btn-click:active {
+  opacity: 0.9;
+  transform: scale(0.97);
 }

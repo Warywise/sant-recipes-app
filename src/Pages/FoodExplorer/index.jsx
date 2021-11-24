@@ -21,28 +21,28 @@ function FoodExplorer() {
     <main className="recipes-explorer">
       { randomRecipe.idMeal && <Redirect to={ `/comidas/${randomRecipe.idMeal}` } />}
       <Header disabledSearch>
-        Explorar Comidas
+        Foods Explorer
       </Header>
       <Button
         className="explorer-btn"
         dataTestId="explore-by-ingredient"
         hasLink="/explorar/comidas/ingredientes"
       >
-        Por Ingredientes
+        by Ingredients
       </Button>
       <Button
         className="explorer-btn"
         dataTestId="explore-by-area"
         hasLink="/explorar/comidas/area"
       >
-        Por Local de Origem
+        by Origin Area
       </Button>
       <Button
         className="explorer-btn"
         dataTestId="explore-surprise"
         onClick={ fetchRandomRecipe }
       >
-        Me Surpreenda!
+        Surprise Me!
       </Button>
       <Footer />
     </main>

@@ -4,27 +4,29 @@ import Header from '../../Components/Header';
 import Button from '../../Components/Button';
 import Footer from '../../Components/Footer';
 
+import './style/Explore.css';
+
 function RecipesExplorer() {
   return (
     <main className="recipes-explorer">
       <Header
         disabledSearch
       >
-        Explorar
+        Explorer
       </Header>
       <Button
-        className="explorer-btn"
+        className="btn-click explorer-btn"
         dataTestId="explore-food"
         hasLink="/explorar/comidas"
       >
-        Explorar Comidas
+        Explore Foods
       </Button>
       <Button
-        className="explorer-btn"
+        className="btn-click explorer-btn"
         dataTestId="explore-drinks"
         hasLink="/explorar/bebidas"
       >
-        Explorar Bebidas
+        Explore Drinks
       </Button>
       <Footer />
     </main>
