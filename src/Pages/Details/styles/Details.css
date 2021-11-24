@@ -1,65 +1,86 @@
-* {
-  font-family: 'Roboto', sans-serif;
-}
-
 .details {
-  background-color: #F0F0F2;
+  background-color: #f0f0f2;
 }
 
-.header-container {
+.details-banner {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  contain: content;
+  display: grid;
+  grid-template-rows: 70% 5% 25%;
   position: relative;
 }
 
-.favorite-btn, .share-btn {
-  margin-top: 10px;
-  width: 60px;
+.back-btn {
+  background-color: transparent;
+  background-image: linear-gradient(to bottom right, #f0f0f242, transparent);
   border: none;
-  outline: none;
+  border-radius: 0  0 75%;
+  box-shadow: 0.3px 0.5px 8px #f0f0f228;
+  left: 0;
+  padding: 16px;
+  position: absolute;
+  top: 0;
 }
 
-.back-btn, .BiArrowBack {
-  width: 60px;
-  left: 0;
-  top: 0;
+.details-img {
+  grid-row: 1/4;
+  width: 100%;
+}
+
+.banner-content {
+  align-items: center;
+  background-image: linear-gradient(to top, #fffcee, transparent);
+  bottom: 0;
+  display: flex;
+  grid-row: 3;
+  justify-content: space-between;
   position: absolute;
-	padding: 10px 5px;
+  width: 100%;
+}
+
+.details-banner:hover .banner-content {
+  background-image: linear-gradient(to top, #fffceeda 50%, transparent);
+}
+
+.favorite-btn, .share-btn {
   background-color: transparent;
   border: none;
+  margin-top: 10px;
+  outline: none;
+  width: 60px;
+}
+
+.empty-heart {
+  color: rgb(127, 127, 127);
+}
+
+.full-heart {
+  color: crimson;
 }
 
 .title-container {
-  padding: 10px 0 0 15px ;
+  padding: 10px 0 0 15px;
 }
 
 .recipe-title {
-  padding: 10px 0 0 10px ;
+  padding: 10px 0 0 10px;
 }
 
-.category {
-  padding-left: 11px;
-  color: #A9A9A9;
-}
-
-.button-container{
-  display: flex;
-  justify-content: space-between;
+.details-category {
+  color: rgb(127, 127, 127);
+  font-size: 1.3em;
+  padding-left: 16px;
 }
 
 .ingredients {
-  display: flex;
   align-items: left;
-  flex-direction: column;
-  max-width: 360px;
-  margin: 0 auto 40px;
-  padding: 45px;
-  background-color: white;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-.video-frame {
+  background-color: #fffcee;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto 40px;
+  max-width: 360px;
+  padding: 45px;
 }
 
 .video {
@@ -67,17 +88,10 @@
 }
 
 .instructions-container {
-  max-width: 360px;
+  background-color: #fffcee;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin: 0 auto 40px;
   padding: 45px;
-  background-color: white;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-.foodPhoto {
-  height: auto; 
-  width: 100%; 
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .header-details {
@@ -87,8 +101,8 @@
 }
 
 .carousel-container {
-  width: 100%;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 .container-cards {
@@ -101,8 +115,8 @@
 }
 
 .recipe-card-recommended {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   margin: 0 1em;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   width: 10em;
 }
 
@@ -113,19 +127,12 @@
   padding: 16px;
 }
 
-footer {
-  background-color: #E6E6E6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .finish-btn {
-  color: #F0F0F2;
-  background-color: #A50303;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 10px;
+  background-color: #a50303;
   border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  color: #f0f0f2;
   outline: none;
   padding: 5px;
 }
@@ -135,14 +142,14 @@ footer {
 }
 
 .footer-details {
-  color: #F0F0F2;
-  background-color: #2CA503;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  border-radius: 10px;
+  background-color: #2ca503;
   border: none;
-  outline: none;
+  border-radius: 10px;
   bottom: 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  color: #f0f0f2;
   left: 140px;
+  outline: none;
   padding: 5px;
   position: fixed;
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { FaRegHeart, FaHeart } from 'react-icons/fa';
 
 import { ToLocalStorage, GetLocalStorage } from '../../../Helper/ToLocalStorage';
 import GetObjectToFavorite from '../../../Helper/GetObjectToFavorite';
@@ -47,7 +48,13 @@ function BtnFavoriteRecipe({ id, dataTestId, url, foodData, className }) {
       className={ className }
       src={ iconFavorite ? blackHeartIcon : whiteHeartIcon }
     >
-      <img src={ iconFavorite ? blackHeartIcon : whiteHeartIcon } alt="Favorite Icon" />
+      <img
+        src={ iconFavorite ? blackHeartIcon : whiteHeartIcon }
+        alt="Favorite Icon"
+        width="0"
+      />
+      { iconFavorite ? <FaRegHeart className="empty-heart" size="1.8em" />
+        : <FaHeart className="full-heart" size="1.8em" /> }
     </Button>
   );
 }
