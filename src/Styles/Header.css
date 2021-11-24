@@ -6,7 +6,7 @@
   display: grid;
   flex-flow: row wrap;
   font-weight: 700;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 15% 5% 60% 5% 15%;
   padding: 5px 0.5em;
   position: fixed;
   top: 0;

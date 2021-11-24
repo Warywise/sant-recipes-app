@@ -6,14 +6,6 @@
   padding: 0;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: currentColor;
-}
-
 .app {
   background-color: #f0f0f2;
   min-height: 100vh;
@@ -27,11 +19,19 @@ a:visited {
   justify-content: center;
 }
 
+.main-recipes a {
+  text-decoration: none;
+}
+
+.main-recipes a:visited {
+  color: currentColor;
+}
+
 .recipes-filter {
   align-items: center;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: calc(8vh + 5vmin) 0;
   width: 100%;
 }

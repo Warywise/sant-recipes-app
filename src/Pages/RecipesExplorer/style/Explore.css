@@ -41,16 +41,16 @@
 }
 
 .ingredients-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 30% 3%;
+  display: grid;
+  grid-gap: 32px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin: calc(15vh + 5vmin) 0 calc(8vh + 5vmin);
+  width: 95%;
 }
 
 .ingredients-container button {
   border: none;
   margin: 0.5em;
-  width: 30%;
 }
 
 .ingredients-container .recipe-card {

@@ -22,21 +22,21 @@ function DrinksExplorer() {
       <Header
         disabledSearch
       >
-        Explorar Bebidas
+        Drinks Explorer
       </Header>
       <Button
         className="explorer-btn"
         dataTestId="explore-by-ingredient"
         hasLink="/explorar/bebidas/ingredientes"
       >
-        Por Ingredientes
+        by Ingredients
       </Button>
       <Button
         className="explorer-btn"
         dataTestId="explore-surprise"
         onClick={ fetchRandomRecipe }
       >
-        Me Surpreenda!
+        Surprise Me!
       </Button>
       <Footer />
     </main>
