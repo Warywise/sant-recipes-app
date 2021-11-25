@@ -149,7 +149,7 @@ function InProgressRecipe({ match: { url }, history: { goBack } }) {
 
       <footer>
         <Button
-          className="finish-btn"
+          className="details-footer-btn finish-btn"
           disabled={ remainingIngredients.length > 0 }
           onClick={ () => finishRecipe(foodData) }
           dataTestId="finish-recipe-btn"

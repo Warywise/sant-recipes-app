@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { BsPatchCheck, BsPatchCheckFill } from 'react-icons/bs';
 
 import GetIngredients from '../../../Helper/GetIngredients';
 import { GetLocalStorage, ToLocalStorage } from '../../../Helper/ToLocalStorage';
@@ -78,6 +79,9 @@ function RenderIngredientCheckboxes({ data, url, id, setArrayState }) {
           className={ checkIngredients(item) ? 'dashed-ingredient' : '' }
           data-testid={ `${index}-ingredient-step` }
         >
+          { checkIngredients(item)
+            ? <BsPatchCheckFill className="checked-ingredient" size="1.3em" />
+            : <BsPatchCheck className="not-checked-ingredient" size="1.3em" /> }
           <input
             type="checkbox"
             id={ `${index}checkbox` }

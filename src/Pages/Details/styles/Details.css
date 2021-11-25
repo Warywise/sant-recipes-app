@@ -81,7 +81,7 @@
   flex-direction: column;
   margin: 0 auto 40px;
   max-width: 500px;
-  padding: 45px;
+  padding: 32px;
   width: 95%;
 }
 
@@ -93,9 +93,10 @@
   background-color: #fffcee;
   border-radius: 8px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  font-size: 1.1em;
   margin: 0 auto 40px;
   max-width: 600px;
-  padding: 45px;
+  padding: 32px;
   width: 95%;
 }
 
@@ -146,19 +147,33 @@
 
 .ingredients-checklist {
   display: grid;
+  font-size: 1.3em;
   padding: 16px;
+}
+
+.ingredients-checklist label input {
+  margin: 0 5px;
+  visibility: hidden;
+  width: 0;
+}
+
+.not-checked-ingredient {
+  color: #3f6473;
+}
+
+.checked-ingredient {
+  color: #2ca503;
+}
+
+.dashed-ingredient {
+  text-decoration: line-through solid #3f6473;
 }
 
 .finish-btn {
   background-color: #a50303;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  color: #f0f0f2;
-  outline: none;
-  padding: 5px;
 }
 
 .finish-btn:disabled {
-  background-color: #f35f5f;
+  background-color: #9b5a5a;
+  opacity: 0.9;
 }
