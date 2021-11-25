@@ -120,7 +120,9 @@
 }
 
 .details footer {
-  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 32px;
 }
 
 .finish-btn {
@@ -137,15 +139,21 @@
   background-color: #f35f5f;
 }
 
-.footer-details {
+.details footer a {
+  grid-column: 2/4;
+}
+
+.details-footer-btn {
   background-color: #2ca503;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   bottom: 0;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) , 0.5px 5px 5px 0 rgba(0, 0, 0, 0.3);
   color: #f0f0f2;
-  left: 140px;
-  outline: none;
-  padding: 5px;
+  font-size: 1.1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 8px;
+  padding: 8px 16px;
   position: fixed;
 }

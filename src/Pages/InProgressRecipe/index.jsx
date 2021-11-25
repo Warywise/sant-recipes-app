@@ -78,80 +78,74 @@ function InProgressRecipe({ match: { url }, history: { goBack } }) {
 
   return (
     <main className="details">
-      <section className="recipe-informations">
-        <div className="header-container">
-          <img
-            className="foodPhoto"
-            src={ foodData.strMealThumb || foodData.strDrinkThumb }
-            data-testid="recipe-photo"
-            alt="food/drinks"
-          />
-          <Button
-            className="back-btn"
-            onClick={ () => goBack() }
-          >
-            <BiArrowBack size="2rem" />
-          </Button>
-        </div>
-        <div className="button-container">
-          <header className="header-details">
-            <h1 className="recipe-title" data-testid="recipe-title">
+      <div className="details-banner">
+        <img
+          className="details-img"
+          src={ foodData.strMealThumb || foodData.strDrinkThumb }
+          data-testid="recipe-photo"
+          alt="food/drinks"
+        />
+        <Button
+          className="back-btn"
+          onClick={ () => goBack() }
+        >
+          <BiArrowBack size="2rem" />
+        </Button>
+        <div className="banner-content">
+          <div className="banner-title">
+            <h1 className="details-title recipe-name" data-testid="recipe-title">
               { foodData.strMeal || foodData.strDrink }
             </h1>
-          </header>
+            <div className="details-category">
+              {
+                (foodData.strAlcoholic) ? (
+                  <p data-testid="recipe-category">
+                    { `${foodData.strCategory} / ${foodData.strAlcoholic}` }
+                  </p>
+                ) : (
+                  <p className="category" data-testid="recipe-category">
+                    {foodData.strCategory}
+                  </p>
+                )
+              }
+            </div>
+          </div>
           <div>
             <Button
               className="share-btn"
               onClick={ copyLink }
-              src={ ShareBtn }
               dataTestId="share-btn"
+              src={ ShareBtn }
             >
               { shareLink
                 ? 'Link copiado!' : <img src={ ShareBtn } alt="Compartilhe!" /> }
             </Button>
             <BtnFavoriteRecipe
-              className="favorite-btn"
+              className="btn-click favorite-btn"
               id={ id }
-              dataTestId="favorite-btn"
               url={ url }
               foodData={ foodData }
+              dataTestId="favorite-btn"
             />
           </div>
         </div>
-        <div className="is-alcoholic">
-          {
-            (foodData.strAlcoholic) ? (
-              <>
-                <p className="category">{ foodData.strCategory }</p>
-                <p data-testid="recipe-category">{foodData.strAlcoholic}</p>
-              </>
-            )
-              : (
-                <p
-                  className="category"
-                  data-testid="recipe-category"
-                >
-                  {foodData.strCategory}
-                </p>
-              )
-          }
-        </div>
-        <h1 className="title-container">Ingredients:</h1>
-        <div className="ingredients">
-          <RenderIngredientCheckboxes
-            data={ foodData }
-            url={ url }
-            id={ id }
-            setArrayState={ setRemainingIngredients }
-          />
-        </div>
-        <h1 className="title-container">Instructions:</h1>
-        <div className="instructions-container">
-          <p data-testid="instructions">
-            {foodData.strInstructions}
-          </p>
-        </div>
-      </section>
+      </div>
+      <hr />
+      <h1 className="title-container">Ingredients:</h1>
+      <div className="ingredients">
+        <RenderIngredientCheckboxes
+          data={ foodData }
+          url={ url }
+          id={ id }
+          setArrayState={ setRemainingIngredients }
+        />
+      </div>
+      <h1 className="details-title">Instructions:</h1>
+      <div className="instructions-box">
+        <p data-testid="instructions">
+          {foodData.strInstructions}
+        </p>
+      </div>
 
       <footer>
         <Button

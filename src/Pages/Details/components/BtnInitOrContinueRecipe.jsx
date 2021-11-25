@@ -38,7 +38,7 @@ function BtnInitOrContinueRecipe({ id, url, ingredients }) {
       return recipeIsInProgress
         ? (
           <Button
-            className="footer-details"
+            className="details-footer-btn"
             dataTestId="start-recipe-btn"
             hasLink={ url.includes('comidas')
               ? `/comidas/${id}/in-progress`
@@ -48,7 +48,7 @@ function BtnInitOrContinueRecipe({ id, url, ingredients }) {
           </Button>)
         : (
           <Button
-            className="footer-details"
+            className="details-footer-btn"
             dataTestId="start-recipe-btn"
             onClick={ startRecipe }
             hasLink={ url.includes('comidas')
