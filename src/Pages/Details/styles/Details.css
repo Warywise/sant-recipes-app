@@ -125,20 +125,6 @@
   padding: 32px;
 }
 
-.finish-btn {
-  background-color: #a50303;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  color: #f0f0f2;
-  outline: none;
-  padding: 5px;
-}
-
-.finish-btn:disabled {
-  background-color: #f35f5f;
-}
-
 .details footer a {
   grid-column: 2/4;
 }
@@ -156,4 +142,23 @@
   margin: 8px;
   padding: 8px 16px;
   position: fixed;
+}
+
+.ingredients-checklist {
+  display: grid;
+  padding: 16px;
+}
+
+.finish-btn {
+  background-color: #a50303;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  color: #f0f0f2;
+  outline: none;
+  padding: 5px;
+}
+
+.finish-btn:disabled {
+  background-color: #f35f5f;
 }

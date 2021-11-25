@@ -132,7 +132,7 @@ function InProgressRecipe({ match: { url }, history: { goBack } }) {
       </div>
       <hr />
       <h1 className="title-container">Ingredients:</h1>
-      <div className="ingredients">
+      <div className="ingredients-box ingredients-checklist">
         <RenderIngredientCheckboxes
           data={ foodData }
           url={ url }
