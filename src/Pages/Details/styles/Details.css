@@ -166,7 +166,7 @@
 }
 
 .dashed-ingredient {
-  text-decoration: line-through solid #3f6473;
+  text-decoration: solid line-through #3f6473da;
 }
 
 .finish-btn {

@@ -25,25 +25,33 @@ function DoneRecipeCard({ recipeData, index }) {
 
   return (
     <div className="done-recipe-card">
-      <Link to={ `/${type}s/${id}` }>
+      <Link to={ `/${type}s/${id}` } className="done-recipe-img">
         <img
           src={ image }
           alt="done recipe"
           data-testid={ `${index}-horizontal-image` }
         />
       </Link>
-      <div>
+      <div className="done-recipe-content">
+        <Link to={ `/${type}s/${id}` }>
+          <h4 data-testid={ `${index}-horizontal-name` }>{ name }</h4>
+        </Link>
         <p data-testid={ `${index}-horizontal-top-text` }>
           { type === 'comida'
             ? `${area} - ${category}` : `${category} - ${alcoholicOrNot}` }
         </p>
-        <Link to={ `/${type}s/${id}` }>
-          <h4 data-testid={ `${index}-horizontal-name` }>{ name }</h4>
-        </Link>
         <p data-testid={ `${index}-horizontal-done-date` }>
           { `Done at: ${doneDate}` }
         </p>
+        { tags.slice(0, 2).map((tag) => (
+          <span key={ tag } data-testid={ `${index}-${tag}-horizontal-tag` }>
+            { tag }
+          </span>
+        )) }
+      </div>
+      <div className="done-recipe-btns">
         <Button
+          className="share-btn"
           dataTestId={ `${index}-horizontal-share-btn` }
           src={ ShareBtn }
           onClick={ copyLink }
@@ -51,16 +59,12 @@ function DoneRecipeCard({ recipeData, index }) {
           { shareLink ? 'Link copiado!' : <img src={ ShareBtn } alt="compartilhe!" /> }
         </Button>
         <BtnFavoriteRecipe
+          className="btn-click favorite-btn"
           id={ id }
           dataTestId=""
           url={ type }
           foodData={ recipeData }
         />
-        { tags.slice(0, 2).map((tag) => (
-          <span key={ tag } data-testid={ `${index}-${tag}-horizontal-tag` }>
-            { tag }
-          </span>
-        )) }
       </div>
     </div>
   );

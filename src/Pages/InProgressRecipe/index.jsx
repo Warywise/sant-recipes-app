@@ -59,7 +59,7 @@ function InProgressRecipe({ match: { url }, history: { goBack } }) {
       name,
       image,
       doneDate,
-      tags: strTags ? strTags.split(', ') : [],
+      tags: strTags ? strTags.split(',') : [],
     };
 
     const doneRecipes = GetLocalStorage('doneRecipes');

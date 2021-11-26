@@ -53,8 +53,8 @@ function BtnFavoriteRecipe({ id, dataTestId, url, foodData, className }) {
         alt="Favorite Icon"
         width="0"
       />
-      { iconFavorite ? <FaRegHeart className="empty-heart" size="1.8em" />
-        : <FaHeart className="full-heart" size="1.8em" /> }
+      { iconFavorite ? <FaHeart className="full-heart" size="1.8em" />
+        : <FaRegHeart className="empty-heart" size="1.8em" /> }
     </Button>
   );
 }

@@ -26,13 +26,15 @@ function RecipesMade() {
           setArray={ setDoneRecipesData }
           localStorageKey="doneRecipes"
         />
-        {doneRecipesData.length > 0 && doneRecipesData.map((recipe, ind) => (
-          <DoneRecipeCard
-            key={ recipe.id }
-            recipeData={ recipe }
-            index={ ind }
-          />
-        )) }
+        <div className="done-recipes-container">
+          {doneRecipesData.length > 0 && doneRecipesData.map((recipe, ind) => (
+            <DoneRecipeCard
+              key={ recipe.id }
+              recipeData={ recipe }
+              index={ ind }
+            />
+          )) }
+        </div>
       </section>
     </main>
   );
