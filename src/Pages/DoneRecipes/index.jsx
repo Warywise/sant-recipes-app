@@ -19,7 +19,7 @@ function RecipesMade() {
   return (
     <main className="done-recipes">
       <Header disabledSearch>
-        Receitas Feitas
+        Done Recipes
       </Header>
       <section className="done-recipes-section">
         <ButtonsFilter
