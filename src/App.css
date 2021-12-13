@@ -89,3 +89,66 @@
   opacity: 0.9;
   transform: scale(0.97);
 }
+
+.loading {
+  align-items: center;
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: center;
+  margin: 64px auto;
+  padding: 18px;
+}
+
+.loading .dot-one {
+  animation: Loading-dot-one 1s infinite linear;
+  background-image: linear-gradient(to top left, #a64f03, #402208da);
+  border-radius: 50%;
+  height: 16px;
+  margin: 0 8px;
+  width: 16px;
+}
+
+.loading .dot-two {
+  animation: Loading-dot-two 1s infinite linear;
+  background-image: linear-gradient(to top right, #a64f03, #402208da);
+  border-radius: 50%;
+  height: 16px;
+  margin: 0 8px;
+  width: 16px;
+}
+
+.loading .dot-three {
+  animation: Loading-dot-three 1s infinite linear;
+  background-image: linear-gradient(to bottom right, #a64f03, #402208da);
+  border-radius: 50%;
+  height: 16px;
+  margin: 0 8px;
+  width: 16px;
+}
+
+@keyframes Loading-dot-one {
+
+  0% { transform: none; }
+
+  25% { transform: translateY(-12px) scale(0.9, 1.1); }
+
+  50% { transform: scale(1.1, 0.95); }
+}
+
+@keyframes Loading-dot-two {
+
+  25% { transform: none; }
+
+  50% { transform: translateY(-12px) scale(0.9, 1.1); }
+
+  75% { transform: scale(1.1, 0.95); }
+}
+
+@keyframes Loading-dot-three {
+
+  50% { transform: none; }
+
+  75% { transform: translateY(-12px) scale(0.9, 1.1); }
+
+  100% { transform: scale(1.1, 0.95); }
+}
