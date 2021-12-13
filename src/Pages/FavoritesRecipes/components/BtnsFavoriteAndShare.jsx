@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
+import { FaHeart } from 'react-icons/fa';
 
 import Button from '../../../Components/Button';
 
@@ -36,6 +37,7 @@ export default function BtnsFavoriteAndShare({ index, id, setFavoritesRecipes, t
   return (
     <>
       <Button
+        className="share-btn"
         dataTestId={ `${index}-horizontal-share-btn` }
         src={ shareIcon }
         onClick={ copyLink }
@@ -44,11 +46,13 @@ export default function BtnsFavoriteAndShare({ index, id, setFavoritesRecipes, t
       </Button>
 
       <Button
+        className="btn-click favorite-btn"
         dataTestId={ `${index}-horizontal-favorite-btn` }
         src={ blackHeartIcon }
         onClick={ removeFavorite }
       >
-        <img src={ blackHeartIcon } alt="favorite" />
+        <img src={ blackHeartIcon } alt="favorite" className="hidden-heart" />
+        <FaHeart className="full-heart" size="1.8em" />
       </Button>
     </>
   );

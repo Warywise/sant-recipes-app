@@ -21,39 +21,37 @@ export default function CardRecipeFavorite({ recipe, index, setFavoritesRecipes 
   );
 
   return (
-    <div className="recipe-favorite">
+    <div className="favorite-recipe-card">
 
-      <Link to={ `${type}s/${id}` }>
-        <section className="container-img">
-          <img
-            alt={ `Foto ${name}` }
-            className="img-recipe-favorite"
-            data-testid={ `${index}-horizontal-image` }
-            src={ image }
-          />
-        </section>
+      <Link to={ `${type}s/${id}` } className="favorite-recipe-img">
+        <img
+          alt={ `Foto ${name}` }
+          className="img-recipe-favorite"
+          data-testid={ `${index}-horizontal-image` }
+          src={ image }
+        />
       </Link>
 
-      <section className="recipe-infos">
+      <section className="favorite-recipe-info">
         <Link to={ `${type}s/${id}` }>
-          <h2 data-testid={ `${index}-horizontal-name` }>
+          <h4 data-testid={ `${index}-horizontal-name` }>
             { name }
-          </h2>
+          </h4>
         </Link>
 
         <div className="category-or-alcoholic">
           { type === 'comida' ? categoryAndArea : alcoholic }
         </div>
 
-        <div className="btns-favorite-share">
-          <BtnsFavoriteAndShare
-            id={ id }
-            index={ index }
-            setFavoritesRecipes={ setFavoritesRecipes }
-            type={ type }
-          />
-        </div>
       </section>
+      <div className="favorite-recipes-btns">
+        <BtnsFavoriteAndShare
+          id={ id }
+          index={ index }
+          setFavoritesRecipes={ setFavoritesRecipes }
+          type={ type }
+        />
+      </div>
 
     </div>
   );

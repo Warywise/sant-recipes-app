@@ -18,18 +18,18 @@ function FavoritesRecipes() {
   }, []);
 
   return (
-    <main className="FavoritesRecipes">
+    <main className="favorite-recipes">
       <Header disabledSearch>
-        Receitas Favoritas
+        Favotite Recipes
       </Header>
 
-      <article className="main-content-favorite-recipes">
+      <section className="favorite-recipes-section">
         <ButtonsFilter
           setArray={ setFavoritesRecipes }
           localStorageKey="favoriteRecipes"
         />
 
-        <section className="recipes-container">
+        <div className="favorite-recipes-container">
           {
             favoritesRecipes.map((recipe, index) => (
               <CardRecipeFavorite
@@ -40,8 +40,8 @@ function FavoritesRecipes() {
               />
             ))
           }
-        </section>
-      </article>
+        </div>
+      </section>
     </main>
   );
 }
