@@ -3,12 +3,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import CardRecipe from '../../Components/CardRecipe';
 import Footer from '../../Components/Footer';
 import Header from '../../Components/Header';
+import Loading from '../../Components/Loading';
 
 import { MyContext } from '../../Context/MyContext';
 import requestApi from '../../Services/requestApi';
 
 function MainRecipes() {
   const { data, filterUrl, setFilterUrl, mealCategories } = useContext(MyContext);
+  const [isLoading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState('');
   const [filters, setFilters] = useState({});
   const [recipes, setRecipes] = useState([]);
@@ -26,8 +28,10 @@ function MainRecipes() {
   }, [filterUrl, setFilterUrl]);
 
   useEffect(() => {
+    setLoading(true);
     if (data.length > 0) {
       setRecipes([...data]);
+      setLoading(false);
     }
   }, [data]);
 
@@ -42,6 +46,7 @@ function MainRecipes() {
   }, [mealCategories]);
 
   async function handleFilter(category) {
+    setLoading(true);
     function getFilteredRecipes() {
       return requestApi(`${CATEGORY_URL}${category}`)
         .then((result) => {
@@ -64,6 +69,7 @@ function MainRecipes() {
     }
 
     setRecipes(filterResult);
+    setLoading(false);
   }
 
   return (
@@ -93,20 +99,21 @@ function MainRecipes() {
         )) }
       </section>
       <section className="recipes-section">
-        { recipes.length > 0 && recipes.slice(0, maxIndex)
-          .map(({ idMeal, strMeal, strMealThumb }, index) => (
-            <CardRecipe
-              key={ `${index}${idMeal}` }
-              pathName="/comidas"
-              id={ idMeal }
-              index={ index }
-              testId={ `${index}-recipe-card` }
-              testIdTitle={ `${index}-card-name` }
-              testIdImg={ `${index}-card-img` }
-              recipeImg={ strMealThumb }
-              recipeName={ strMeal }
-            />
-          )) }
+        { isLoading ? <Loading />
+          : recipes.slice(0, maxIndex)
+            .map(({ idMeal, strMeal, strMealThumb }, index) => (
+              <CardRecipe
+                key={ `${index}${idMeal}` }
+                pathName="/comidas"
+                id={ idMeal }
+                index={ index }
+                testId={ `${index}-recipe-card` }
+                testIdTitle={ `${index}-card-name` }
+                testIdImg={ `${index}-card-img` }
+                recipeImg={ strMealThumb }
+                recipeName={ strMeal }
+              />
+            )) }
       </section>
       <Footer />
     </main>

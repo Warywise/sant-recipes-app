@@ -6,9 +6,11 @@ import Footer from '../../Components/Footer';
 
 import { MyContext } from '../../Context/MyContext';
 import requestApi from '../../Services/requestApi';
+import Loading from '../../Components/Loading';
 
 function MainRecipesDrinks() {
   const { data, filterUrl, setFilterUrl, drinkCategories } = useContext(MyContext);
+  const [isLoading, setLoading] = useState(true);
   const [selectedFilter, setSelectedFilter] = useState('');
   const [filters, setFilters] = useState({});
   const [recipes, setRecipes] = useState([]);
@@ -28,6 +30,7 @@ function MainRecipesDrinks() {
   useEffect(() => {
     if (data.length > 0) {
       setRecipes([...data]);
+      setLoading(false);
     }
   }, [data]);
 
@@ -42,6 +45,7 @@ function MainRecipesDrinks() {
   }, [drinkCategories]);
 
   async function handleFilter(category) {
+    setLoading(true);
     function getFilteredRecipes() {
       return requestApi(`${CATEGORY_URL}${category}`)
         .then((result) => {
@@ -52,8 +56,6 @@ function MainRecipesDrinks() {
 
     let filterResult = [...data];
     if (category === selectedFilter) {
-      filterResult = [...data];
-
       setSelectedFilter('');
     } else {
       filterResult = filters[category].length > 0
@@ -64,6 +66,7 @@ function MainRecipesDrinks() {
     }
 
     setRecipes(filterResult);
+    setLoading(false);
   }
 
   return (
@@ -94,19 +97,20 @@ function MainRecipesDrinks() {
       </section>
 
       <section className="recipes-section">
-        { recipes.length > 0 && recipes.slice(0, maxIndex)
-          .map(({ idDrink, strDrink, strDrinkThumb }, index) => (
-            <CardRecipe
-              key={ `${index}${idDrink}` }
-              pathName="/bebidas"
-              id={ idDrink }
-              testId={ `${index}-recipe-card` }
-              testIdTitle={ `${index}-card-name` }
-              testIdImg={ `${index}-card-img` }
-              recipeImg={ strDrinkThumb }
-              recipeName={ strDrink }
-            />
-          )) }
+        { isLoading ? <Loading />
+          : recipes.slice(0, maxIndex)
+            .map(({ idDrink, strDrink, strDrinkThumb }, index) => (
+              <CardRecipe
+                key={ `${index}${idDrink}` }
+                pathName="/bebidas"
+                id={ idDrink }
+                testId={ `${index}-recipe-card` }
+                testIdTitle={ `${index}-card-name` }
+                testIdImg={ `${index}-card-img` }
+                recipeImg={ strDrinkThumb }
+                recipeName={ strDrink }
+              />
+            )) }
       </section>
       <Footer />
     </main>

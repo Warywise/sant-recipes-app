@@ -6,9 +6,11 @@ import Footer from '../../Components/Footer';
 import { MyContext } from '../../Context/MyContext';
 import requestApi from '../../Services/requestApi';
 import CardRecipe from '../../Components/CardRecipe';
+import Loading from '../../Components/Loading';
 
 function AreaExplorer() {
   const { data, filtersByArea, setFilterByArea } = useContext(MyContext);
+  const [isLoading, setLoading] = useState(true);
   const [locations, setlocations] = useState(null);
   const [locationFoods, setLocationFoods] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState('');
@@ -27,9 +29,11 @@ function AreaExplorer() {
     }
 
     getLocations();
+    setLoading(false);
   }, []);
 
   useEffect(() => {
+    setLoading(true);
     function getLocationFoods() {
       return requestApi(`${FILTER_AREA_URL}${selectedLocation}`)
         .then(({ meals }) => {
@@ -46,6 +50,7 @@ function AreaExplorer() {
           || await getLocationFoods();
         setLocationFoods(filterResult);
       }
+      setLoading(false);
     }
 
     if (data.length > 0) changeLocationFoods();
@@ -68,7 +73,7 @@ function AreaExplorer() {
         )) }
       </select>
       <section className="recipes-section">
-        { locationFoods && locationFoods.slice(0, maxFoods)
+        { isLoading ? <Loading /> : locationFoods.slice(0, maxFoods)
           .map(({ strMeal, strMealThumb, idMeal }, index) => (
             <CardRecipe
               key={ `${index}${idMeal}` }

@@ -16,9 +16,11 @@ import './styles/Details.css';
 
 import requestApi from '../../Services/requestApi';
 import GetIngredients from '../../Helper/GetIngredients';
+import Loading from '../../Components/Loading';
 
 function Details({ match: { url }, history: { goBack } }) {
   const { id } = useParams();
+  const [isLoading, setLoading] = useState(true);
   const [foodData, setFoodData] = useState({});
   const [shareLink, setShareLink] = useState(false);
 
@@ -36,6 +38,7 @@ function Details({ match: { url }, history: { goBack } }) {
     }
 
     fetchFood();
+    setLoading(false);
   }, [id, url]);
 
   function filterIngredients() {
@@ -60,84 +63,85 @@ function Details({ match: { url }, history: { goBack } }) {
   }
 
   return (
-    <main className="details">
-      <div className="details-banner">
-        <img
-          className="details-img"
-          src={ foodData.strMealThumb || foodData.strDrinkThumb }
-          data-testid="recipe-photo"
-          alt="food/drinks"
-        />
-        <Button
-          className="back-btn"
-          onClick={ () => goBack() }
-        >
-          <BiArrowBack size="2rem" />
-        </Button>
-        <div className="banner-content">
-          <div className="banner-title">
-            <h1 className="details-title recipe-name" data-testid="recipe-title">
-              { foodData.strMeal || foodData.strDrink }
-            </h1>
-            <div className="details-category">
-              {
-                (foodData.strAlcoholic) ? (
-                  <p data-testid="recipe-category">
-                    { `${foodData.strCategory} / ${foodData.strAlcoholic}` }
-                  </p>
-                ) : (
-                  <p className="category" data-testid="recipe-category">
-                    {foodData.strCategory}
-                  </p>
-                )
-              }
+    isLoading ? <Loading /> : (
+      <main className="details">
+        <div className="details-banner">
+          <img
+            className="details-img"
+            src={ foodData.strMealThumb || foodData.strDrinkThumb }
+            data-testid="recipe-photo"
+            alt="food/drinks"
+          />
+          <Button
+            className="back-btn"
+            onClick={ () => goBack() }
+          >
+            <BiArrowBack size="2rem" />
+          </Button>
+          <div className="banner-content">
+            <div className="banner-title">
+              <h1 className="details-title recipe-name" data-testid="recipe-title">
+                { foodData.strMeal || foodData.strDrink }
+              </h1>
+              <div className="details-category">
+                {
+                  (foodData.strAlcoholic) ? (
+                    <p data-testid="recipe-category">
+                      { `${foodData.strCategory} / ${foodData.strAlcoholic}` }
+                    </p>
+                  ) : (
+                    <p className="category" data-testid="recipe-category">
+                      {foodData.strCategory}
+                    </p>
+                  )
+                }
+              </div>
+            </div>
+            <div>
+              <Button
+                className="share-btn"
+                onClick={ copyLink }
+                dataTestId="share-btn"
+                src={ ShareBtn }
+              >
+                { shareLink
+                  ? 'Link copiado!' : <img src={ ShareBtn } alt="Compartilhe!" /> }
+              </Button>
+              <BtnFavoriteRecipe
+                className="btn-click favorite-btn"
+                id={ id }
+                url={ url }
+                foodData={ foodData }
+                dataTestId="favorite-btn"
+              />
             </div>
           </div>
-          <div>
-            <Button
-              className="share-btn"
-              onClick={ copyLink }
-              dataTestId="share-btn"
-              src={ ShareBtn }
-            >
-              { shareLink
-                ? 'Link copiado!' : <img src={ ShareBtn } alt="Compartilhe!" /> }
-            </Button>
-            <BtnFavoriteRecipe
-              className="btn-click favorite-btn"
-              id={ id }
-              url={ url }
-              foodData={ foodData }
-              dataTestId="favorite-btn"
-            />
-          </div>
         </div>
-      </div>
-      <hr />
-      <h1 className="details-title">Ingredients:</h1>
-      <div className="ingredients-box">
-        <ul className="ingredients-li">
-          { filterIngredients() }
-        </ul>
-      </div>
-      <h1 className="details-title">Instructions:</h1>
-      <div className="instructions-box">
-        <p data-testid="instructions">
-          {foodData.strInstructions}
-        </p>
-      </div>
-      <div className="video-frame">
-        <VideoIframe data={ foodData } />
-      </div>
-      <Carousel url={ url } />
-      <footer>
-        <BtnInitOrContinueRecipe
-          id={ id }
-          url={ url }
-          ingredients={ GetIngredients(foodData) }
-        />
-      </footer>
-    </main>
+        <hr />
+        <h1 className="details-title">Ingredients:</h1>
+        <div className="ingredients-box">
+          <ul className="ingredients-li">
+            { filterIngredients() }
+          </ul>
+        </div>
+        <h1 className="details-title">Instructions:</h1>
+        <div className="instructions-box">
+          <p data-testid="instructions">
+            {foodData.strInstructions}
+          </p>
+        </div>
+        <div className="video-frame">
+          <VideoIframe data={ foodData } />
+        </div>
+        <Carousel url={ url } />
+        <footer>
+          <BtnInitOrContinueRecipe
+            id={ id }
+            url={ url }
+            ingredients={ GetIngredients(foodData) }
+          />
+        </footer>
+      </main>)
   );
 }
 

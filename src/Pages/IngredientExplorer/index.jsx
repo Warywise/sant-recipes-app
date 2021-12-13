@@ -8,8 +8,10 @@ import Footer from '../../Components/Footer';
 
 import { MyContext } from '../../Context/MyContext';
 import requestApi from '../../Services/requestApi';
+import Loading from '../../Components/Loading';
 
 function IngredientExplorer({ match: { url } }) {
+  const [isLoading, setLoading] = useState(true);
   const [ingredients, setIngredients] = useState([]);
   const { setFilterUrl } = useContext(MyContext);
 
@@ -25,6 +27,7 @@ function IngredientExplorer({ match: { url } }) {
       setIngredients(fetchResult);
     }
     fetchIngredients();
+    setLoading(false);
   }, [url]);
 
   function getIngredientImg(name) {
@@ -52,7 +55,7 @@ function IngredientExplorer({ match: { url } }) {
         Ingredients Explorer
       </Header>
       <div className="ingredients-container">
-        { ingredients.length > 0 && ingredients.slice(0, maxIndex).map((item, ind) => (
+        { isLoading ? <Loading /> : ingredients.slice(0, maxIndex).map((item, ind) => (
           <Button
             key={ `ingredient${ind}` }
             onClick={ () => ingredientsData(item.strIngredient || item.strIngredient1) }

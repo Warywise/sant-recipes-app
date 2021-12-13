@@ -92,38 +92,40 @@
 
 .loading {
   align-items: center;
-  /* background-color: yellow; */
   display: flex;
   justify-content: center;
-  margin: 64px auto;
+  margin: auto;
   padding: 18px;
+  position: absolute;
+  top: 45%;
+  width: 100%;
 }
 
 .loading .dot-one {
   animation: Loading-dot-one 1s infinite linear;
   background-image: linear-gradient(to top left, #a64f03, #402208da);
   border-radius: 50%;
-  height: 16px;
+  height: 15px;
   margin: 0 8px;
-  width: 16px;
+  width: 15px;
 }
 
 .loading .dot-two {
   animation: Loading-dot-two 1s infinite linear;
   background-image: linear-gradient(to top right, #a64f03, #402208da);
   border-radius: 50%;
-  height: 16px;
+  height: 15px;
   margin: 0 8px;
-  width: 16px;
+  width: 15px;
 }
 
 .loading .dot-three {
   animation: Loading-dot-three 1s infinite linear;
   background-image: linear-gradient(to bottom right, #a64f03, #402208da);
   border-radius: 50%;
-  height: 16px;
+  height: 15px;
   margin: 0 8px;
-  width: 16px;
+  width: 15px;
 }
 
 @keyframes Loading-dot-one {

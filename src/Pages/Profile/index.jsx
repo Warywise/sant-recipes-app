@@ -8,7 +8,6 @@ import './styles/Profile.css';
 import Button from '../../Components/Button';
 
 import { GetLocalStorage } from '../../Helper/ToLocalStorage';
-import Loading from '../../Components/Loading';
 
 function Profile() {
   const [email, setEmail] = useState();
@@ -62,7 +61,6 @@ function Profile() {
           </Button>
         </section>
       </article>
-      <Loading />
       <Footer />
     </main>
   );
