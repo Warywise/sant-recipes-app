@@ -16,7 +16,7 @@ export default function CardRecipeFavorite({ recipe, index, setFavoritesRecipes 
 
   const alcoholic = (
     <p data-testid={ `${index}-horizontal-top-text` }>
-      { alcoholicOrNot }
+      { `${alcoholicOrNot} - ${category}` }
     </p>
   );
 

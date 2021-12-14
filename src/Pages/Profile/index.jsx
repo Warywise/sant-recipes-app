@@ -22,45 +22,41 @@ function Profile() {
   }
 
   return (
-    <main className="Profile">
+    <main className="main-profile">
       <Header
         disabledSearch
       >
-        Perfil
+        Profile
       </Header>
 
-      <article className="main-content">
-        <section data-testid="profile-email">
-          { email }
-        </section>
+      <section className="profile-content">
+        <h5 data-testid="profile-email">{ email }</h5>
 
-        <section className="container-links">
+        <div className="links-container">
           <Button
-            className="profile-done-btn btns-links-profile"
             dataTestId="profile-done-btn"
             hasLink="/receitas-feitas"
           >
-            Receitas Feitas
+            Done Recipes
           </Button>
 
           <Button
-            className="profile-favorite-btn btns-links-profile"
             dataTestId="profile-favorite-btn"
             hasLink="/receitas-favoritas"
           >
-            Receitas Favoritas
+            Favorite Recipes
           </Button>
 
           <Button
-            className="profile-favorite-btn btns-links-profile"
+            className="logout"
             dataTestId="profile-logout-btn"
             onClick={ clearLocalStorage }
             hasLink="/"
           >
-            Sair
+            Logout
           </Button>
-        </section>
-      </article>
+        </div>
+      </section>
       <Footer />
     </main>
   );
