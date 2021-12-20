@@ -67,7 +67,7 @@ function Details({ match: { url }, history: { goBack } }) {
       <main className="details">
         <div className="details-banner">
           <img
-            className="details-img"
+            className="details-banner-img"
             src={ foodData.strMealThumb || foodData.strDrinkThumb }
             data-testid="recipe-photo"
             alt="food/drinks"

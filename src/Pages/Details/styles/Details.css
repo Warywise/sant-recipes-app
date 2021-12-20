@@ -22,7 +22,7 @@
   top: 0;
 }
 
-.details-img {
+.details-banner-img {
   grid-row: 1/4;
   width: 100%;
 }
@@ -83,6 +83,12 @@
   max-width: 500px;
   padding: 32px;
   width: 95%;
+}
+
+.video-frame {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .video {
@@ -176,4 +182,33 @@
 .finish-btn:disabled {
   background-color: #9b5a5a;
   opacity: 0.9;
+}
+
+@media screen and ( min-width : 450px ) {
+
+  .details-banner {
+    grid-template-columns: minmax(300px, 500px) 1fr;
+  }
+
+  .details-banner-img {
+    box-shadow: 3px 0 10px 3px rgba(0, 0, 0, 0.2) , 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+  .banner-content {
+    align-items: flex-start;
+    flex-flow: column;
+    grid-column: 2/3;
+    grid-row: 1/4;
+    justify-content: space-around;
+    padding: calc(2rem + 5vw);
+    top: 0;
+  }
+
+  .ingredients-box, .ingredients-checklist, .instructions-box {
+    margin-left: 2.25rem;
+  }
+
+  .instructions-box {
+    max-width: 750px;
+  }
 }

@@ -16,6 +16,7 @@ function IngredientExplorer({ match: { url } }) {
   const { setFilterUrl } = useContext(MyContext);
 
   const maxIndex = 12;
+  const TIME_OUT = 1000;
 
   useEffect(() => {
     async function fetchIngredients() {
@@ -27,7 +28,7 @@ function IngredientExplorer({ match: { url } }) {
       setIngredients(fetchResult);
     }
     fetchIngredients();
-    setLoading(false);
+    setTimeout(() => setLoading(false), TIME_OUT);
   }, [url]);
 
   function getIngredientImg(name) {

@@ -18,6 +18,7 @@ function AreaExplorer() {
   const AREA_LIST_URL = 'https://www.themealdb.com/api/json/v1/1/list.php?a=list';
   const FILTER_AREA_URL = 'https://www.themealdb.com/api/json/v1/1/filter.php?a=';
   const maxFoods = 12;
+  const TIME_OUT = 1000;
 
   useEffect(() => {
     function getLocations() {
@@ -29,7 +30,7 @@ function AreaExplorer() {
     }
 
     getLocations();
-    setLoading(false);
+    setTimeout(() => setLoading(false), TIME_OUT);
   }, []);
 
   useEffect(() => {
@@ -50,7 +51,7 @@ function AreaExplorer() {
           || await getLocationFoods();
         setLocationFoods(filterResult);
       }
-      setLoading(false);
+      setTimeout(() => setLoading(false), TIME_OUT);
     }
 
     if (data.length > 0) changeLocationFoods();

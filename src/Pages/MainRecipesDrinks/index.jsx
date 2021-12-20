@@ -20,6 +20,7 @@ function MainRecipesDrinks() {
 
   const maxLength = 5;
   const maxIndex = 12;
+  const TIME_OUT = 1000;
 
   useEffect(() => {
     if (!filterUrl.includes('cocktail')) {
@@ -30,7 +31,7 @@ function MainRecipesDrinks() {
   useEffect(() => {
     if (data.length > 0) {
       setRecipes([...data]);
-      setLoading(false);
+      setTimeout(() => setLoading(false), TIME_OUT);
     }
   }, [data]);
 
@@ -66,7 +67,7 @@ function MainRecipesDrinks() {
     }
 
     setRecipes(filterResult);
-    setLoading(false);
+    setTimeout(() => setLoading(false), TIME_OUT);
   }
 
   return (
