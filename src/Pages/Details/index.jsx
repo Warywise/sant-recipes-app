@@ -56,7 +56,7 @@ function Details({ match: { url }, history: { goBack } }) {
   function copyLink() {
     const TIMEOUT = 3500;
 
-    copy(`http://localhost:3000${url}`);
+    copy(`https://sant-recipes-app.herokuapp.com${url}`);
 
     setShareLink(true);
     setTimeout(() => setShareLink(false), TIMEOUT);

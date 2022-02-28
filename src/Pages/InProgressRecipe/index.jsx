@@ -70,7 +70,7 @@ function InProgressRecipe({ match: { url }, history: { goBack } }) {
     const TIMEOUT = 3500;
     const recipeObj = GetObjectToFavorite(foodData, url);
 
-    copy(`http://localhost:3000/${recipeObj.type}s/${recipeObj.id}`);
+    copy(`https://sant-recipes-app.herokuapp.com/${recipeObj.type}s/${recipeObj.id}`);
 
     setShareLink(true);
     setTimeout(() => setShareLink(false), TIMEOUT);

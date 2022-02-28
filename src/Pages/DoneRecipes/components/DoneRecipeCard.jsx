@@ -17,7 +17,7 @@ function DoneRecipeCard({ recipeData, index }) {
   function copyLink() {
     const TIMEOUT = 3500;
 
-    copy(`http://localhost:3000/${type}s/${id}`);
+    copy(`https://sant-recipes-app.herokuapp.com/${type}s/${id}`);
 
     setShareLink(true);
     setTimeout(() => setShareLink(false), TIMEOUT);

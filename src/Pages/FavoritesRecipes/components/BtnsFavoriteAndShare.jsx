@@ -26,7 +26,7 @@ export default function BtnsFavoriteAndShare({ index, id, setFavoritesRecipes, t
   function copyLink() {
     const TIMEOUT = 2000;
 
-    copy(`http://localhost:3000/${type}s/${id}`);
+    copy(`https://sant-recipes-app.herokuapp.com/${type}s/${id}`);
 
     setShareLink(true);
     setTimeout(() => setShareLink(false), TIMEOUT);
