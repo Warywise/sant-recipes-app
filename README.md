@@ -16,7 +16,7 @@ O layout tem como foco dispositivos móveis, então todos os protótipos foram d
 
   O resultado final do projeto encontra-se hospedado no seguinte link:
   
-> https://sant-recipes-app.herokuapp.com/
+> https://sant-recipes-app.vercel.app/
 
 
 # Habilidades desenvolvidas
