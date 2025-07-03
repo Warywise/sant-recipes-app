@@ -16,7 +16,7 @@ function MainRecipesDrinks() {
   const [recipes, setRecipes] = useState([]);
 
   const CATEGORY_URL = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=';
-  const INITIAL_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
+  const INITIAL_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a';
 
   const maxLength = 5;
   const maxIndex = 12;
