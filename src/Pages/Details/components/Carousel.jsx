@@ -11,7 +11,7 @@ function Carousel({ url }) {
   useEffect(() => {
     async function requestRecommendedRecipes() {
       const URL_API = url.includes('comidas')
-        ? 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
+        ? 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a'
         : 'https://www.themealdb.com/api/json/v1/1/search.php?s=';
 
       const resolve = await requestApi(URL_API);
