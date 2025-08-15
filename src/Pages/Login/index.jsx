@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Button, Modal } from 'reactstrap';
 
 import { MyContext } from '../../Context/MyContext';
 import DefaultInput from '../../Components/DefaultInput';
@@ -16,6 +16,7 @@ function Login() {
 
   const { user, setUser, createLocalStorageKeys } = useContext(MyContext);
 
+  const [modalOpen, setModalOpen] = useState(false);
   const [state, setState] = useState(INITIAL_STATE);
   const { email, password, login } = state;
 
@@ -74,9 +75,27 @@ function Login() {
         </Button>
         <p>
           { 'Don\'t have an account? ' }
-          <a href="/">Signup Now.</a>
+          <Button color="link" onClick={ () => setModalOpen(true) }>Signup Now.</Button>
         </p>
       </form>
+      <Modal centered isOpen={ modalOpen } toggle={ () => setModalOpen(false) }>
+        <article className="login-modal-box">
+          <h3>Não é necessário se cadastrar. 🤫</h3>
+          <p>
+            Você pode fazer login diretamente.
+            Utilize um e-mail em formato válido e uma senha com mais de 6 caracteres
+          </p>
+          <code>Ex: email@example.com | @123456</code>
+
+          <span className="login-modal-divider" />
+          <Button
+            color="primary"
+            onClick={ () => setModalOpen(false) }
+          >
+            Fechar
+          </Button>
+        </article>
+      </Modal>
     </main>
   );
 }
